@@ -37,6 +37,8 @@ public class Project extends BaseEntity {
     private User assignedManager;
 
 
+
+
 }
 
 

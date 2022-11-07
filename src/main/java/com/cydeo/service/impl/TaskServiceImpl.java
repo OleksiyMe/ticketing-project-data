@@ -64,9 +64,13 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void delete(Long id) {
 
-        Task task = taskRepository.findById(id).get();
-        task.setIsDeleted(true);
-        taskRepository.save(task);
+        Optional<Task> task= taskRepository.findById(id);
+
+        if (task.isPresent()){
+            task.get().setIsDeleted(true);
+            taskRepository.save(task.get());
+        }
+
 
     }
 
@@ -77,5 +81,16 @@ public class TaskServiceImpl implements TaskService {
 
         if (task.isPresent()) return taskMapper.convertToDto(task.get());
         return null;
+    }
+
+    @Override
+    public int totalNonCompletedTask(String projectCode) {
+        return taskRepository.totalNonCompletedTasks(projectCode);
+
+    }
+
+    @Override
+    public int totalCompletedTask(String projectCode) {
+        return taskRepository.totalCompletedTasks(projectCode);
     }
 }
