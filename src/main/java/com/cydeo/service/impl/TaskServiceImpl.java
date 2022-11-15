@@ -96,6 +96,9 @@ public class TaskServiceImpl implements TaskService {
 
         if (task.isPresent()) return taskMapper.convertToDto(task.get());
         return null;
+
+    //    return task.map(taskMapper::convertToDto).orElse(null);
+
     }
 
     @Override
