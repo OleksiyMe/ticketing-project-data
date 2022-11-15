@@ -15,11 +15,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name="users")
-@Where(clause="is_deleted=false")     //ads Where is_deleted=false to all derived methods
+//@Where(clause="is_deleted=false")     //ads Where is_deleted=false to all derived methods
 public class User extends BaseEntity {
 
     private String firstName;
     private String lastName;
+
     @Column(unique = true)
     private String userName;
     private String passWord;
