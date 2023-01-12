@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "projects")
+//ads Where is_deleted=false to all derived methods
 @Where(clause = "is_deleted=false")
 public class Project extends BaseEntity {
 

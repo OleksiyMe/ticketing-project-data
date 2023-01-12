@@ -27,7 +27,8 @@ public class UserDTO {
     private String userName;
 
     @NotBlank
-    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])" +
+            "(?=.*([ -/]|[:-@]|[Z-_]|[{-~]))(?=\\S+$).{4,}$")
     private String passWord;
 
     @NotNull
